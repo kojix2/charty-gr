@@ -1,0 +1,66 @@
+PATH
+  remote: .
+  specs:
+    charty-gr (0.1.0)
+      charty
+      ruby-gr
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ast (2.4.1)
+    charty (0.2.3)
+      red-colors
+      red-palette (>= 0.2.0)
+    coderay (1.1.3)
+    histogram (0.2.4.1)
+    method_source (1.0.0)
+    numo-narray (0.9.1.8)
+    parallel (1.19.2)
+    parser (2.7.1.5)
+      ast (~> 2.4.1)
+    pkg-config (1.4.4)
+    power_assert (1.2.0)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    rainbow (3.0.0)
+    rake (12.3.3)
+    red-colors (0.1.1)
+    red-palette (0.2.0)
+      red-colors
+    regexp_parser (1.8.0)
+    rexml (3.2.4)
+    rubocop (0.92.0)
+      parallel (~> 1.10)
+      parser (>= 2.7.1.5)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.7)
+      rexml
+      rubocop-ast (>= 0.5.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-ast (0.6.0)
+      parser (>= 2.7.1.5)
+    ruby-gr (0.0.23)
+      histogram
+      numo-narray
+      pkg-config
+    ruby-progressbar (1.10.1)
+    test-unit (3.3.6)
+      power_assert
+    unicode-display_width (1.7.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler
+  charty-gr!
+  pry
+  rake (~> 12.3.3)
+  rubocop
+  test-unit
+
+BUNDLED WITH
+   2.1.4
