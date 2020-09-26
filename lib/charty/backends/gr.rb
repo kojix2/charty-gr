@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'charty'
 require 'fileutils'
 
 module Charty
@@ -25,8 +26,8 @@ module Charty
 
       def render_layout(layout); end
 
-      def render(context,filename=nil)
-        plot(context)
+      def render(context, filename = nil)
+        plot(@GR, context)
         if filename
           FileUtils.mkdir_p(File.dirname(filename))
           GR.savefig(filename)
@@ -39,7 +40,7 @@ module Charty
       #   GR.savefig(filename)
       # end
 
-      def plot(ax, context, subplot: false)
+      def plot(_ax, context, subplot: false)
         case context.method
         when :bar
           if context.series.size > 1
@@ -54,16 +55,19 @@ module Charty
         when :box_plot
         when :bubble
         when :curve
-          @GR.plot(*context.series.map { |i| [i.xs, i.ys] },
+          @GR.plot(*context.series.map { |i| [i.xs.to_a, i.ys.to_a] },
                    title: context.title,
                    xlabel: context.xlabel,
                    ylabel: context.ylabel,
                    labels: context.series.map(&:label))
         when :scatter
-          @GR.scatter(*context.series.map { |i| [i.xs, i.ys] },
+          @GR.plot(*context.series.map { |i| [i.xs.to_a, i.ys.to_a] },
+                      spec: "o",
                       title: context.title,
                       xlabel: context.xlabel,
-                      ylabel: context.ylabel)
+                      ylabel: context.ylabel,
+                      labels: context.series.map(&:label)
+                    )
         when :error_bar
         when :hist
           if context.data.size > 1
