@@ -1,6 +1,9 @@
 # charty-gr
 
-The GR backend for charty.
+The GR backend for [charty](https://github.com/red-data-tools/charty).
+
+* This is a transitional gem.
+* When [GRUtils.rb](https://github.com/kojix2/grutils.rb) is completed, it may be replaced by one that uses GRUtils.rb.
 
 ## Installation
 
